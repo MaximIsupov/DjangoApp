@@ -1,0 +1,99 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+}
+
+.content_block{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom:50px;
+    margin-top:50px;
+    padding:25px;
+    font-size: 18px;
+    border-radius: 50px;
+}
+
+.content_block a{
+    color:#00CED1;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.menu{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    padding:5px;
+    border:30px;
+    border-radius: 0;
+}
+
+input[type='text']{
+    margin-top:20px;
+    width:300px;
+    height:70px;
+    font-size:30px;
+}
+
+.menu a{
+       font-size: 18px;
+    padding:10px;
+}
+
+.content_block input{
+    width:200px;
+}
+
+.content_block h1{
+     color:#00CED1;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+        border: #00CED1 solid 2px;
+    color:#00CED1;
+}
+
+form input{
+    max-width:300px;
+}
+
+form label,form p{
+    margin-top: 20px;
+    color:#00CED1;
+    font-size:35px;
+}
+
+form input[type="checkbox"]{
+    height:30px;
+    width:30px;
+}
+
+input[type="submit"]{
+    border: #00CED1 solid 5px;
+    border-radius: 30px;
+    background-color: white;
+    padding:10px;
+    font-size:25px;
+    color:#00CED1;
+    margin-top:20px;
+}
+
+.delete_student{
+    font-size:20px !important;
+    color:red !important;
+    text-decoration: underline !important;
+    opacity:0.5;
+}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="content_block">
+    {% if groups_list %}
+    <ul>
+    {% for group in groups_list %}
+        <li><a href="/Forms/groups/{{ group.id }}/">{{ group.group_num }}</a></li>
+                <a class="delete_student" href="{% url 'Forms:delete_group' group.id %}"> Удалить группу </a>
+        <a class="delete_student" href="/Forms/groups/{{ group.id }}/"> Изменить </a>
+        <br>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No groups are available.</p>
+{% endif %}
+        <br>
+<h2><a href="{% url 'Forms:add_group_form'%}">Добавить новую группу</a></h2>
+    </div>
+{% endblock %}

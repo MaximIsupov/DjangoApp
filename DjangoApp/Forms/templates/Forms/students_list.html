@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="content_block">
+    {% if students_list %}
+    <ul>
+    {% for student in students_list %}
+        <li><a href="/Forms/students/{{ student.id }}/">{{ student.name }}, {{ student.surname }}</a></li>
+        <a class="delete_student" href="{% url 'Forms:delete_student' student.id %}">Удалить студента </a>
+        <a class="delete_student" href="/Forms/students/{{ student.id }}/">Изменить </a>
+        <br>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No students are available.</p>
+{% endif %}
+        <br>
+<h2><a href="{% url 'Forms:add_student_form'%}">Добавить нового студента </a></h2>
+    </div>
+{% endblock %}

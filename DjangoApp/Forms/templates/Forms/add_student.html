@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+    <form action="{% url 'Forms:add_student'%}" method="post">
+    {% csrf_token %}
+        <label for="st_name">Имя студента</label>
+    <input type="text" name="student_name" id="st_name" value="{{ students.name }}">
+        <label for="st_surname">Фамилия студента</label>
+    <input type="text" name="student_surname" id="st_surname" value="{{ students.surname }}">
+        <p> Выберите группу студента:</p>
+        <div class="checkbox">
+        {% for group in groups_list %}
+            <input type="radio" name="group" id="group{{ forloop.counter }}" value="{{ group.id }}">
+            <label for="group{{ forloop.counter }}">{{ group.group_num }}</label><br>
+        {% endfor %}
+            </div>
+    <input type="submit" value="Добавить">
+    </form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="content_block">
+    {% if fakulcies_list %}
+    <ul>
+    {% for fak in fakulcies_list %}
+        <li><a href="/Forms/fakulcies/{{ fak.id }}/">{{ fak.fakulcy_name }}</a></li>
+                <a class="delete_student" href="{% url 'Forms:delete_fakulcy' fak.id %}">Удалить факультет </a>
+                <a class="delete_student" href="/Forms/fakulcies/{{ fak.id }}">Изменить</a>
+        <br>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No fakulcies are available.</p>
+{% endif %}
+        <br>
+<h2><a href="{% url 'Forms:add_fakulcy_form'%}">Добавить новый факультет </a></h2>
+    </div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+    <form action="{% url 'Forms:edit_fakulcy' fakulcies.id %}" method="post">
+    {% csrf_token %}
+        <label for="fak_name">Название факультета</label>
+    <input type="text" name="fakulcy_name" id="fak_name" value="{{ fakulcies.fakulcy_name }}">
+    <input type="submit" value="Изменить">
+    </form>
+{% endblock %}

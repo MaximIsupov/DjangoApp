@@ -1,0 +1,27 @@
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>List of students</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/my_css.css' %}" rel="stylesheet">
+    <![endif]-->
+  </head>
+  <body>
+    <header>
+      <div class="content_block menu">
+        <a href="{% url 'Forms:students' %}">Студенты</a>
+        <a href="{% url 'Forms:groups' %}">Группы</a>
+        <a href="{% url 'Forms:fakulcies' %}">Факультеты</a>
+      </div>
+    </header>
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+    <script src="{% static 'Forms/bootstrap.min.js' %}"></script>  <!-- JQUERY HERE -->
+    <script src="{% static 'Forms/jquery.js' %}"></script>  <!-- JQUERY HERE -->
+    {% block javascript %}
+    {% endblock %}
+  </body>
+</html>

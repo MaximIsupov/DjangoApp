@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content_block">
+    <h1>{{ students.name}}, {{ students.surname }}</h1>
+
+    <ul>
+    </ul>
+
+    <a href="{% url 'Forms:detail' students.id %}">Может, добавить ещё студента?</a>
+</div>
+{% endblock %}

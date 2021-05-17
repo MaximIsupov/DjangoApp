@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+    <form action="{% url 'Forms:edit_group' groups.id %}" method="post">
+    {% csrf_token %}
+        <label for="gr_name">Номер группы</label>
+    <input type="text" name="group_num" id="gr_name" value="{{ groups.group_num }}">
+        <p>Выберите факультет, к которому принадлежит группа:</p>
+        <div class="checkbox">
+        {% for fak in faks_list %}
+            <input type="radio" name="fak" id="fak{{ forloop.counter }}" value="{{ fak.id }}">
+            <label for="fak{{ forloop.counter }}">{{ fak.fakulcy_name }}</label><br>
+        {% endfor %}
+        </div>
+    <input type="submit" value="Изменить">
+    </form>
+{% endblock %}

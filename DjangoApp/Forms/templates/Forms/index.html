@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="content_block">
+        <a href="{% url 'Forms:students' %}">Просмотреть список студентов.</a>
+    </div>
+    <div class="content_block m-0">
+        <a href="{% url 'Forms:groups' %}">Просмотреть список групп.</a>
+    </div>
+    <div class="content_block">
+        <a href="{% url 'Forms:fakulcies' %}">Просмотреть список факультетов.</a>
+    </div>
+{% endblock %}

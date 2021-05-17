@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+    <form action="{% url 'Forms:add_group'%}" method="post">
+    {% csrf_token %}
+        <label for="gr_name">Номер группы</label>
+    <input type="text" name="group_num" id="gr_name" value="{{ groups.group_num }}">
+        <div class="checkox">
+            <p>Факультет:</p>
+        {% for fak in faks_list %}
+            <input type="radio" name="fak" id="fak{{ forloop.counter }}" value="{{ fak.id }}">
+            <label for="fak{{ forloop.counter }}">{{ fak.fakulcy_name }}</label><br>
+        {% endfor %}
+            </div>
+    <input type="submit" value="Добавить">
+    </form>
+{% endblock %}
