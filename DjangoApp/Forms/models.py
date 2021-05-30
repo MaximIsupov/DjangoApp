@@ -13,19 +13,37 @@ class DataManager(models.Manager):
         return fakulcy
 
 class Fakulcies(models.Model):
-    fakulcy_name = models.CharField(max_length=100)
+    fakulcy_name = models.CharField(max_length=100, verbose_name = 'Название факультета')
     objects = DataManager()
+    class Meta:
+        verbose_name = 'Факультет'
+        verbose_name_plural = 'Факультеты'
+
+    def __str__(self):
+        return f"{self.fakulcy_name}"
 
 class Groups(models.Model):
-    group_num = models.CharField(max_length=50)
-    fakulcy_id = models.ForeignKey(Fakulcies, on_delete=models.CASCADE)
+    group_num = models.CharField(max_length=50, verbose_name = 'Номер группы')
+    fakulcy_id = models.ForeignKey(Fakulcies, on_delete=models.CASCADE, verbose_name = 'Факультет')
     objects = DataManager()
+    class Meta:
+        verbose_name = 'Группа'
+        verbose_name_plural = 'Группы'
+
+    def __str__(self):
+        return f"{self.group_num}"
 
 class Students(models.Model):
-    name = models.CharField(max_length=100)
-    surname = models.CharField(max_length=100)
-    group_id = models.ForeignKey(Groups, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100, verbose_name = 'Имя')
+    surname = models.CharField(max_length=100, verbose_name = 'Фамилия')
+    group_id = models.ForeignKey(Groups, on_delete=models.CASCADE, verbose_name = 'Группа')
     objects = DataManager()
+    class Meta:
+        verbose_name = 'Студент'
+        verbose_name_plural = 'Студенты'
+
+    def __str__(self):
+        return f"{self.name}, {self.surname}"
 
 
 
